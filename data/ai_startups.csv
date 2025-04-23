@@ -1,0 +1,31 @@
+company_name,funding_amount,founding_year,industry_focus,location,employee_count,nlp,computer_vision,robotics,generative_ai,recommendation_systems,forecasting,automation,growth_rate,customer_acquisition_cost,retention_rate,runway_months
+Botify AI,2500000,2018,Marketing,San Francisco,28,1,0,0,1,1,0,1,68,850,73,18
+NeuralSense,18000000,2016,Healthcare,Boston,105,1,1,0,0,0,1,1,42,1200,81,24
+QuantumLeap Tech,8500000,2019,Finance,New York,53,0,0,0,1,1,1,0,92,950,68,15
+VisionCore,31000000,2015,Manufacturing,Austin,187,0,1,1,0,0,0,1,35,1450,85,36
+DataMind,5200000,2020,Retail,Chicago,34,1,0,0,0,1,1,0,76,780,71,12
+RoboWorks,14700000,2017,Logistics,Seattle,95,0,1,1,0,0,0,1,48,1100,79,22
+TextGenius,3800000,2019,Education,Toronto,27,1,0,0,1,0,0,0,65,820,75,14
+PredictX,10500000,2018,Insurance,London,67,1,0,0,0,0,1,1,53,980,77,20
+AutoLearn,22300000,2016,Automotive,Detroit,148,0,1,1,0,0,0,1,39,1300,83,28
+GenCreate,7900000,2020,Media,Los Angeles,42,1,0,0,1,1,0,0,88,900,72,16
+Cognify,4100000,2019,Legal,Washington DC,31,1,0,0,0,1,0,1,59,870,74,15
+IntelliProcess,26500000,2015,Business Services,Singapore,173,0,0,1,0,0,1,1,37,1380,84,30
+FutureSight,6300000,2020,Telecommunications,Seoul,39,0,1,0,1,0,0,0,82,930,70,13
+SmartDecision,15800000,2017,Energy,Houston,102,0,0,0,0,1,1,1,45,1150,80,24
+NLPMasters,4700000,2019,Customer Service,Dublin,33,1,0,0,1,0,0,1,63,840,76,17
+VirtualAgent,11200000,2018,Real Estate,Sydney,71,1,1,0,0,1,0,0,51,1000,78,21
+RoboHealth,20100000,2016,Healthcare,Berlin,131,0,1,1,0,0,1,0,41,1250,82,26
+PredictiveIQ,8200000,2018,Marketing,Paris,55,1,0,0,0,1,1,1,57,960,77,19
+AIFactory,27800000,2015,Manufacturing,Tokyo,179,0,1,1,0,0,1,1,36,1400,85,32
+ContentGen,6800000,2020,Media,Amsterdam,40,1,0,0,1,1,0,0,85,910,71,15
+InsightEngine,16500000,2017,Analytics,Tel Aviv,109,1,0,0,0,1,1,0,47,1170,80,23
+CompVis,3400000,2019,Security,Stockholm,29,0,1,0,0,0,0,1,61,830,75,16
+AutomateNow,12300000,2018,IT,Bangalore,78,0,0,1,0,0,1,1,49,1020,79,22
+LangLearn,5800000,2019,Education,Madrid,36,1,0,0,1,0,0,0,67,860,74,18
+IntelliFinance,19200000,2016,Finance,Zurich,128,0,0,0,1,1,1,0,44,1220,81,25
+VisualTech,7100000,2020,Retail,Milan,41,0,1,0,1,0,0,0,79,920,72,14
+DecisionBot,9800000,2018,Consulting,Montreal,61,1,0,0,0,0,1,1,55,970,78,20
+RoboAssist,24700000,2015,Customer Service,Melbourne,167,0,0,1,0,1,0,1,38,1350,84,29
+DataPredict,4900000,2019,Insurance,Hong Kong,35,0,0,0,0,1,1,0,64,850,76,17
+CreativeAI,9100000,2018,Design,Vancouver,58,1,0,0,1,1,0,0,60,940,77,19
