@@ -9,3 +9,7 @@ beautifulsoup4>=4.12.2
 selenium>=4.10.0
 webdriver-manager>=3.8.6
 python-dotenv>=1.0.0
+nltk>=3.8.1
+plotly>=5.13.0
+pathlib>=1.0.1
+argparse>=1.4.0

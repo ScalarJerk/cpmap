@@ -3,29 +3,37 @@ import sys
 import argparse
 import subprocess
 import platform
+import venv
 from pathlib import Path
 
-def check_dependencies():
-    """Check if all required packages are installed."""
-    required_packages = ['requests', 'pandas', 'streamlit', 'scikit-learn']
-    missing_packages = []
+def ensure_venv():
+    """Create a virtual environment if it doesn't exist and install dependencies."""
+    project_dir = Path(__file__).parent
+    venv_dir = project_dir / "venv"
     
-    for package in required_packages:
-        try:
-            __import__(package)
-        except ImportError:
-            missing_packages.append(package)
+    # Create virtual environment if it doesn't exist
+    if not venv_dir.exists():
+        print(f"Creating virtual environment in {venv_dir}...")
+        venv.create(venv_dir, with_pip=True)
     
-    if missing_packages:
-        print("\n⚠️ Missing dependencies detected: " + ", ".join(missing_packages))
-        install = input("Do you want to install them now? (y/n): ")
-        if install.lower() == 'y':
-            subprocess.check_call([sys.executable, '-m', 'pip', 'install'] + missing_packages)
-            print("✅ Dependencies installed successfully!")
-        else:
-            print("⚠️ Some features may not work without required dependencies.")
-            return False
-    return True
+    # Determine the pip path
+    if platform.system() == "Windows":
+        pip_path = venv_dir / "Scripts" / "pip"
+        python_path = venv_dir / "Scripts" / "python.exe"
+    else:
+        pip_path = venv_dir / "bin" / "pip"
+        python_path = venv_dir / "bin" / "python"
+    
+    # Install requirements
+    requirements_file = project_dir / "requirements.txt"
+    if requirements_file.exists():
+        print(f"Installing required packages from {requirements_file}...")
+        subprocess.check_call([str(pip_path), "install", "-r", str(requirements_file)])
+        print("✅ Dependencies installed successfully!")
+    else:
+        print(f"Warning: {requirements_file} not found. No packages installed.")
+    
+    return python_path
 
 def get_python_executable():
     """Get the path to the Python executable in the virtual environment"""
@@ -33,8 +41,8 @@ def get_python_executable():
     venv_dir = project_dir / "venv"
     
     if not venv_dir.exists():
-        print("Virtual environment not found. Please run setup_venv.py first.")
-        sys.exit(1)
+        print("Virtual environment not found. Creating it now...")
+        return ensure_venv()
     
     if platform.system() == "Windows":
         python_path = venv_dir / "Scripts" / "python.exe"
@@ -43,8 +51,8 @@ def get_python_executable():
     
     if not python_path.exists():
         print(f"Python executable not found at {python_path}")
-        print("Please run setup_venv.py to create the virtual environment.")
-        sys.exit(1)
+        print("Recreating virtual environment...")
+        return ensure_venv()
     
     return str(python_path)
 
@@ -76,17 +84,18 @@ def main():
     parser.add_argument("--analyze", action="store_true", help="Run the clustering analysis")
     parser.add_argument("--dashboard", action="store_true", help="Launch the dashboard")
     parser.add_argument("--all", action="store_true", help="Run the complete pipeline")
+    parser.add_argument("--setup", action="store_true", help="Only set up the virtual environment and dependencies")
     
     args = parser.parse_args()
     
-    # If no options specified, show help
-    if not (args.scrape or args.process or args.analyze or args.dashboard or args.all):
-        parser.print_help()
+    # If setup only, just create the venv and install dependencies
+    if args.setup:
+        ensure_venv()
         return
     
-    # Check dependencies before running any scripts
-    if not check_dependencies():
-        return
+    # If no options specified, run everything (changed from showing help)
+    if not (args.scrape or args.process or args.analyze or args.dashboard or args.all or args.setup):
+        args.all = True
     
     # Run the requested steps
     steps_success = []
